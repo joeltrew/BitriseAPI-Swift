@@ -57,11 +57,11 @@ public class BitriseService {
         }
         
         // Send the request
-        networkClient.send(request) { (result) in
+        networkClient.send(_request) { (result) in
             
             // Convert the response into a PagedData object containing the paging metadata
             let mappedResult = result.map({ (container) -> PagedData<T.ResponseType> in
-                return PagedData(data: container.value, pagination: pagination)
+                return PagedData(data: container.value, pagination: container.pagination)
             })
             
             completion(mappedResult)

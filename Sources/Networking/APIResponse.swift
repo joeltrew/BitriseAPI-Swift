@@ -28,21 +28,4 @@ public struct APIResponse<Response: Decodable>: Decodable {
         
         case paging
     }
-
-}
-
-public struct Pagination: Decodable {
-    
-    var totalItemCount: Int
-    var pageItemLimit: Int
-    var next: String?
-    
-    enum CodingKeys: String, CodingKey {
-        
-        case totalItemCount = "total_item_count"
-        
-        case pageItemLimit = "page_item_limit"
-        
-        case next
-    }
 }
