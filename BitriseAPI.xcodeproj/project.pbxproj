@@ -85,6 +85,9 @@
 		FFB8BE232030D11800A06E24 /* AbortBuildResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BE222030D11800A06E24 /* AbortBuildResponse.swift */; };
 		FFB8BE242030D11800A06E24 /* AbortBuildResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BE222030D11800A06E24 /* AbortBuildResponse.swift */; };
 		FFB8BE252030D11800A06E24 /* AbortBuildResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BE222030D11800A06E24 /* AbortBuildResponse.swift */; };
+		FFB8BE272031011C00A06E24 /* BuildFilterQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BE262031011C00A06E24 /* BuildFilterQuery.swift */; };
+		FFB8BE282031011C00A06E24 /* BuildFilterQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BE262031011C00A06E24 /* BuildFilterQuery.swift */; };
+		FFB8BE292031011C00A06E24 /* BuildFilterQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BE262031011C00A06E24 /* BuildFilterQuery.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +123,7 @@
 		FFB8BE192030AD4000A06E24 /* AbortBuildRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbortBuildRequest.swift; sourceTree = "<group>"; };
 		FFB8BE1E2030C03200A06E24 /* AbortBuildOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbortBuildOptions.swift; sourceTree = "<group>"; };
 		FFB8BE222030D11800A06E24 /* AbortBuildResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbortBuildResponse.swift; sourceTree = "<group>"; };
+		FFB8BE262031011C00A06E24 /* BuildFilterQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildFilterQuery.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +229,7 @@
 				FFB8BE082030A0D500A06E24 /* Build.swift */,
 				FFB8BE002030A06200A06E24 /* GetBuildsByAppSlugRequest.swift */,
 				FFB8BE042030A07100A06E24 /* GetBuildBySlugRequest.swift */,
+				FFB8BE262031011C00A06E24 /* BuildFilterQuery.swift */,
 			);
 			path = Builds;
 			sourceTree = "<group>";
@@ -418,6 +423,7 @@
 				FFB8BDBA202FBA8600A06E24 /* User.swift in Sources */,
 				FFB8BE1A2030AD4000A06E24 /* AbortBuildRequest.swift in Sources */,
 				FFB8BE162030AD1D00A06E24 /* GetArtifactBySlug.swift in Sources */,
+				FFB8BE272031011C00A06E24 /* BuildFilterQuery.swift in Sources */,
 				FFB8BDEE202FF71E00A06E24 /* PagedData.swift in Sources */,
 				FFB8BD9D202FA25500A06E24 /* NetworkClient.swift in Sources */,
 				FFB8BDEC202FECA800A06E24 /* GetAppBySlugRequest.swift in Sources */,
@@ -449,6 +455,7 @@
 				FFB8BD9E202FA25500A06E24 /* NetworkClient.swift in Sources */,
 				FFB8BE1B2030AD4000A06E24 /* AbortBuildRequest.swift in Sources */,
 				FFB8BE172030AD1D00A06E24 /* GetArtifactBySlug.swift in Sources */,
+				FFB8BE282031011C00A06E24 /* BuildFilterQuery.swift in Sources */,
 				FFB8BDB3202FB63500A06E24 /* BitriseService.swift in Sources */,
 				FFB8BDEF202FF71E00A06E24 /* PagedData.swift in Sources */,
 				FFB8BDF3202FF72A00A06E24 /* GetAppsRequest.swift in Sources */,
@@ -480,6 +487,7 @@
 				FFB8BD9F202FA25500A06E24 /* NetworkClient.swift in Sources */,
 				FFB8BE1C2030AD4000A06E24 /* AbortBuildRequest.swift in Sources */,
 				FFB8BE182030AD1D00A06E24 /* GetArtifactBySlug.swift in Sources */,
+				FFB8BE292031011C00A06E24 /* BuildFilterQuery.swift in Sources */,
 				FFB8BDB4202FB63500A06E24 /* BitriseService.swift in Sources */,
 				FFB8BDF0202FF71E00A06E24 /* PagedData.swift in Sources */,
 				FFB8BDF4202FF72B00A06E24 /* GetAppsRequest.swift in Sources */,

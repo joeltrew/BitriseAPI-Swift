@@ -99,6 +99,17 @@ public struct Build: Decodable {
             }
         }
         
+        public var rawValue: Int {
+            switch self {
+            case .unfinished: return 0
+            case .finished(.success): return 1
+            case .finished(.failed): return 2
+            case .aborted(.failed): return 3
+            case .aborted(.success): return 4
+            default: return 5
+            }
+        }
+        
         public init(rawValue: Int) {
             
             switch rawValue {
