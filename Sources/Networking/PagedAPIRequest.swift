@@ -20,13 +20,31 @@ protocol PagedAPIRequest: APIRequest {
 
 extension PagedAPIRequest {
     func createUrl() -> URL {
-        let urlWithEndpoint =  baseUrl.appendingPathComponent(endpoint!)
+        let urlWithEndpoint =  baseUrl.appendingPathComponent(endpoint)
         let urlWithEndpointAndQueries = addQueries(to: urlWithEndpoint)
         return urlWithEndpointAndQueries
     }
 }
 
 extension PagedAPIRequest {
+    
+    var limit: Int? {
+        get {
+            return nil
+        }
+        set {
+            
+        }
+    }
+    
+    var next: String? {
+        get {
+            return nil
+        }
+        set {
+            
+        }
+    }
     
     func addQueries(to url: URL) -> URL {
         

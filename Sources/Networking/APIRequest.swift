@@ -11,7 +11,7 @@ protocol APIRequest {
     
     associatedtype ResponseType: Decodable
     
-    var endpoint: String? {
+    var endpoint: String {
         get
     }
     
@@ -44,7 +44,7 @@ extension APIRequest {
     
 
     func createUrl() -> URL {
-        return baseUrl.appendingPathComponent(endpoint ?? "")
+        return baseUrl.appendingPathComponent(endpoint)
     }
 
     

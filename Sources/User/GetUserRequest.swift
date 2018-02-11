@@ -9,7 +9,7 @@ import Foundation
 
 struct GetUserRequest: APIRequest {
 
-    var endpoint: String? = "me"
+    var endpoint: String = "me"
     
     typealias ResponseType = User
     

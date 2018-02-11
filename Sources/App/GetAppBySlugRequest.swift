@@ -9,7 +9,7 @@ import Foundation
 
 struct GetAppBySlugRequest: APIRequest {
     
-    var endpoint: String? = "apps"
+    var endpoint: String = "apps"
     
     typealias ResponseType = App
     
@@ -25,6 +25,6 @@ struct GetAppBySlugRequest: APIRequest {
     }
     
     func createUrl() -> URL {
-        return baseUrl.appendingPathComponent(endpoint!).appendingPathComponent(slug)
+        return baseUrl.appendingPathComponent(endpoint).appendingPathComponent(slug)
     }
 }

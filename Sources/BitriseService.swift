@@ -9,6 +9,8 @@ import Foundation
 
 public class BitriseService {
     
+    public typealias PagedDataResultCompletion<T> = ResultCompletion<PagedData<[T]>>
+    
     var userToken: String
     
     var apiConfig: APIConfig = APIConfig(baseUrl: "api.bitrise.io", version: "v0.1")
@@ -77,11 +79,11 @@ public class BitriseService {
     }
     
     // MARK: - Get app methods
-    public func getApps(nextPage: Pagination? = nil, completion: @escaping ResultCompletion<PagedData<[App]>>) {
+    public func getApps(pagination: Pagination? = nil, completion: @escaping PagedDataResultCompletion<App>) {
         
         let request = GetAppsRequest(baseUrl: apiConfig.url)
         
-        self.perform(request: request, pagination: nextPage, completion: completion)
+        self.perform(request: request, pagination: pagination, completion: completion)
     }
     
     
@@ -93,4 +95,12 @@ public class BitriseService {
     }
     
     // MARK: - Get build methods
+    
+    public func getBuilds(for app: App, pagination: Pagination? = nil, completion: @escaping PagedDataResultCompletion<Build>) {
+        let request = GetBuildsByAppSlugRequest(baseUrl: apiConfig.url, appSlug: app.slug)
+        
+        self.perform(request: request, pagination: pagination, completion: completion)
+        
+        
+    }
 }

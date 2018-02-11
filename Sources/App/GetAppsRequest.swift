@@ -9,11 +9,7 @@ import Foundation
 
 struct GetAppsRequest: APIRequest, PagedAPIRequest {
     
-    var limit: Int? = nil
-    
-    var next: String? = nil
-    
-    var endpoint: String? = "me/apps"
+    var endpoint: String = "me/apps"
     
     typealias ResponseType = [App]
     
