@@ -9,6 +9,9 @@ import Foundation
 
 struct GetUserRequest: APIRequest {
 
+    
+    var endpoint: String? = "me"
+    
     typealias Response = User
     
     let httpMethod: HTTPMethod = .get

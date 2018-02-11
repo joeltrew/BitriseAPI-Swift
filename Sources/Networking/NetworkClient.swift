@@ -7,12 +7,17 @@
 
 import Foundation
 
-class NetworkClient {
+public class NetworkClient {
     
     var session: URLSession
     
-    init(session: URLSession = URLSession.shared) {
-        self.session = session
+    public init(token: String) {
+        let config = URLSessionConfiguration.default
+        var headers = config.httpAdditionalHeaders ?? [AnyHashable: Any]()
+        headers["Authorization"] = "token \(token)"
+        config.httpAdditionalHeaders = headers
+        self.session = URLSession(configuration: config)
+        
     }
     
     
@@ -42,7 +47,7 @@ class NetworkClient {
                     completion(.success(dataInResponse))
                     return
                     
-                } else if let message = decodedResponse.errorMessage {
+                } else if let message = decodedResponse.message {
                     
                     completion(.failure(NetworkError.server(message: message)))
                     return

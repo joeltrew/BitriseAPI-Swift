@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BitriseService {
+public class BitriseService {
     
     var userToken: String
     
@@ -15,13 +15,13 @@ class BitriseService {
     
     var networkClient: NetworkClient
     
-    init(userToken: String, networkClient: NetworkClient = NetworkClient()) {
+    public init(userToken: String) {
         self.userToken = userToken
-        self.networkClient = networkClient
+        self.networkClient = NetworkClient(token: userToken)
     }
     
     
-    func getUser(completion: @escaping ResultCompletion<User>) {
+    public func getUser(completion: @escaping ResultCompletion<User>) {
         
         let request = GetUserRequest(baseUrl: apiConfig.url)
         

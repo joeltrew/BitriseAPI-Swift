@@ -16,9 +16,9 @@ struct APIConfig {
     var url: URL {
         
         var components = URLComponents()
-        components.host = "https"
+        components.scheme = "https"
         components.host = baseUrl
-        components.path = "v\(version)"
+        components.path = "/\(version)"
     
         guard let url = components.url else {
             fatalError("Can't create url from config")

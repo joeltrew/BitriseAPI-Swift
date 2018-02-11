@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Result<Value> {
+public enum Result<Value> {
     case success(Value)
     case failure(Error)
     
@@ -27,4 +27,4 @@ enum Result<Value> {
 }
 
 
-typealias ResultCompletion<T> = (Result<T>) -> ()
+public typealias ResultCompletion<T> = (Result<T>) -> ()

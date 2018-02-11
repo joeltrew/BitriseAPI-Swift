@@ -9,7 +9,7 @@ import Foundation
 
 public struct APIResponse<Response: Decodable>: Decodable {
 
-    public let errorMessage: String?
+    public let message: String?
     
     public var pagination: Pagination?
 
