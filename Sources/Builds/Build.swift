@@ -9,47 +9,47 @@ import Foundation
 
 public struct Build: Decodable {
     
-    var slug: String
+    public var slug: String
     
-    var triggeredAt: Date
+    public var triggeredAt: Date
     
-    var startedOnWorkerAt: Date
+    public var startedOnWorkerAt: Date
     
-    var environmentPrepareFinishedAt: Date
+    public var environmentPrepareFinishedAt: Date
     
-    var finishedAt: Date
+    public var finishedAt: Date
     
-    var status: Int
+    public var status: Int
     
-    var abortReason: String?
+    public var abortReason: String?
     
-    var isOnHold: Bool
+    public var isOnHold: Bool
     
-    var branch: String
+    public var branch: String
     
-    var buildNumber: Int
+    public var buildNumber: Int
     
-    var commitHash: String?
+    public var commitHash: String?
     
-    var tag: String?
+    public var tag: String?
     
-    var triggeredWorkflow: String
+    public var triggeredWorkflow: String
     
-    var triggeredBy: String?
+    public var triggeredBy: String?
     
-    var stackConfigType: String?
+    public var stackConfigType: String?
     
-    var stackIdentifier: String?
+    public var stackIdentifier: String?
     
-    var originalBuildParams: [String: String]?
+    public var originalBuildParams: [String: String]?
     
-    var pullRequestId: Int?
+    public var pullRequestId: Int?
     
-    var pullRequestTargetBranch: String?
+    public var pullRequestTargetBranch: String?
     
-    var pullRequestViewUrl: URL?
+    public var pullRequestViewUrl: URL?
     
-    var commitViewUrl: URL?
+    public var commitViewUrl: URL?
     
     enum CodingKeys: String, CodingKey {
         

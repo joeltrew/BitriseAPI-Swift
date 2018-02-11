@@ -96,11 +96,17 @@ public class BitriseService {
     
     // MARK: - Get build methods
     
-    public func getBuilds(for app: App, pagination: Pagination? = nil, completion: @escaping PagedDataResultCompletion<Build>) {
+    public func getBuildsForApp(_ app: App, pagination: Pagination? = nil, completion: @escaping PagedDataResultCompletion<Build>) {
+        
         let request = GetBuildsByAppSlugRequest(baseUrl: apiConfig.url, appSlug: app.slug)
         
         self.perform(request: request, pagination: pagination, completion: completion)
+    }
+    
+    public func getBuildBySlug(_ buildSlug: String, in app: App, completion: @escaping ResultCompletion<Build>) {
         
+        let request = GetBuildBySlugRequest(baseUrl: apiConfig.url, appSlug: app.slug, buildSlug: buildSlug)
         
+        self.perform(request: request, completion: completion)
     }
 }

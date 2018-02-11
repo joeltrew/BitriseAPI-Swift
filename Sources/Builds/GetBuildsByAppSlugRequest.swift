@@ -11,7 +11,9 @@ struct GetBuildsByAppSlugRequest: PagedAPIRequest {
     
     var appSlug: String
     
-    var endpoint: String = "builds"
+    var endpoint: String {
+        return "apps/\(appSlug)/builds"
+    }
     
     typealias ResponseType = [Build]
     
@@ -24,14 +26,5 @@ struct GetBuildsByAppSlugRequest: PagedAPIRequest {
     init(baseUrl: URL, appSlug: String) {
         self.baseUrl = baseUrl
         self.appSlug = appSlug
-    }
-    
-    func createUrl() -> URL {
-        let url = baseUrl.appendingPathComponent("apps")
-            .appendingPathComponent(appSlug)
-            .appendingPathComponent(endpoint)
-        let urlWithQueries = addQueries(to: url)
-        
-        return urlWithQueries
     }
 }
