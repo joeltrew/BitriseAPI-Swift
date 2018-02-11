@@ -7,11 +7,13 @@
 
 import Foundation
 
-import Foundation
-
 protocol APIRequest {
     
     associatedtype Response: Decodable
+    
+    var baseUrl: URL {
+        get
+    }
     
     var urlRequest: URLRequest {
         get
@@ -25,8 +27,39 @@ protocol APIRequest {
         get
     }
     
-    var body: Encodable {
+    var body: Data? {
         get
+        set
+    }
+    
+    var isAuthenticated: Bool {
+        get
+    }
+}
+
+extension APIRequest {
+    
+    var urlRequest: URLRequest {
+        
+        var urlRequest = URLRequest(url: baseUrl)
+        
+        urlRequest.httpMethod = httpMethod.rawValue
+        urlRequest.httpBody = body
+        urlRequest.allHTTPHeaderFields = headers
+        
+        return urlRequest
+    }
+    
+    var headers: [String: String] {
+        return [String:String]()
+    }
+    
+    var isAuthenticated: Bool {
+        return true
+    }
+    
+    mutating func setBody<T: Encodable>(with encodable: T) {
+        self.body = try? JSONEncoder().encode(encodable.self)
     }
 }
 

@@ -7,15 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FFB8BD72202F9E8500A06E24 /* Info-iOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFB8BD6F202F9E8500A06E24 /* Info-iOS.plist */; };
-		FFB8BD73202F9E8500A06E24 /* Info-tvOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFB8BD70202F9E8500A06E24 /* Info-tvOS.plist */; };
-		FFB8BD74202F9E8500A06E24 /* Info-macOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFB8BD71202F9E8500A06E24 /* Info-macOS.plist */; };
 		FFB8BD76202F9FF600A06E24 /* BitriseAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB8BD75202F9FF600A06E24 /* BitriseAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FFB8BD77202FA00000A06E24 /* BitriseAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB8BD75202F9FF600A06E24 /* BitriseAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FFB8BD78202FA00000A06E24 /* BitriseAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB8BD75202F9FF600A06E24 /* BitriseAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FFB8BD7A202FA03200A06E24 /* ExampleClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BD79202FA03200A06E24 /* ExampleClass.swift */; };
-		FFB8BD7B202FA03400A06E24 /* ExampleClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BD79202FA03200A06E24 /* ExampleClass.swift */; };
-		FFB8BD7C202FA03400A06E24 /* ExampleClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BD79202FA03200A06E24 /* ExampleClass.swift */; };
 		FFB8BD9D202FA25500A06E24 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BD9C202FA25500A06E24 /* NetworkClient.swift */; };
 		FFB8BD9E202FA25500A06E24 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BD9C202FA25500A06E24 /* NetworkClient.swift */; };
 		FFB8BD9F202FA25500A06E24 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BD9C202FA25500A06E24 /* NetworkClient.swift */; };
@@ -34,6 +28,18 @@
 		FFB8BDB2202FB63500A06E24 /* BitriseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDB1202FB63500A06E24 /* BitriseService.swift */; };
 		FFB8BDB3202FB63500A06E24 /* BitriseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDB1202FB63500A06E24 /* BitriseService.swift */; };
 		FFB8BDB4202FB63500A06E24 /* BitriseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDB1202FB63500A06E24 /* BitriseService.swift */; };
+		FFB8BDB6202FB78000A06E24 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDB5202FB78000A06E24 /* APIConfig.swift */; };
+		FFB8BDB7202FB78000A06E24 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDB5202FB78000A06E24 /* APIConfig.swift */; };
+		FFB8BDB8202FB78000A06E24 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDB5202FB78000A06E24 /* APIConfig.swift */; };
+		FFB8BDBA202FBA8600A06E24 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDB9202FBA8600A06E24 /* User.swift */; };
+		FFB8BDBB202FBA8600A06E24 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDB9202FBA8600A06E24 /* User.swift */; };
+		FFB8BDBC202FBA8600A06E24 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDB9202FBA8600A06E24 /* User.swift */; };
+		FFB8BDBF202FBB9E00A06E24 /* GetUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDBE202FBB9E00A06E24 /* GetUserRequest.swift */; };
+		FFB8BDC0202FBB9E00A06E24 /* GetUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDBE202FBB9E00A06E24 /* GetUserRequest.swift */; };
+		FFB8BDC1202FBB9E00A06E24 /* GetUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDBE202FBB9E00A06E24 /* GetUserRequest.swift */; };
+		FFB8BDC2202FC5C400A06E24 /* Info-tvOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFB8BD70202F9E8500A06E24 /* Info-tvOS.plist */; };
+		FFB8BDC3202FC5C800A06E24 /* Info-macOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFB8BD71202F9E8500A06E24 /* Info-macOS.plist */; };
+		FFB8BDC4202FC5F500A06E24 /* Info-iOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFB8BD6F202F9E8500A06E24 /* Info-iOS.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +50,6 @@
 		FFB8BD70202F9E8500A06E24 /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
 		FFB8BD71202F9E8500A06E24 /* Info-macOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		FFB8BD75202F9FF600A06E24 /* BitriseAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitriseAPI.h; sourceTree = "<group>"; };
-		FFB8BD79202FA03200A06E24 /* ExampleClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleClass.swift; sourceTree = "<group>"; };
 		FFB8BD7D202FA08200A06E24 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		FFB8BD9C202FA25500A06E24 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		FFB8BDA0202FA3B800A06E24 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -52,6 +57,9 @@
 		FFB8BDA9202FA6ED00A06E24 /* DataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainer.swift; sourceTree = "<group>"; };
 		FFB8BDAD202FB08500A06E24 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		FFB8BDB1202FB63500A06E24 /* BitriseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitriseService.swift; sourceTree = "<group>"; };
+		FFB8BDB5202FB78000A06E24 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
+		FFB8BDB9202FBA8600A06E24 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FFB8BDBE202FBB9E00A06E24 /* GetUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,13 +109,14 @@
 		FFB8BD6E202F9E1800A06E24 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				FFB8BDBD202FBB8E00A06E24 /* User */,
 				FFB8BDA4202FA42500A06E24 /* Networking */,
+				FFB8BDB5202FB78000A06E24 /* APIConfig.swift */,
+				FFB8BDB1202FB63500A06E24 /* BitriseService.swift */,
 				FFB8BD75202F9FF600A06E24 /* BitriseAPI.h */,
 				FFB8BD6F202F9E8500A06E24 /* Info-iOS.plist */,
 				FFB8BD71202F9E8500A06E24 /* Info-macOS.plist */,
 				FFB8BD70202F9E8500A06E24 /* Info-tvOS.plist */,
-				FFB8BD79202FA03200A06E24 /* ExampleClass.swift */,
-				FFB8BDB1202FB63500A06E24 /* BitriseService.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -122,6 +131,15 @@
 				FFB8BDAD202FB08500A06E24 /* APIResponse.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		FFB8BDBD202FBB8E00A06E24 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				FFB8BDB9202FBA8600A06E24 /* User.swift */,
+				FFB8BDBE202FBB9E00A06E24 /* GetUserRequest.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,9 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFB8BD74202F9E8500A06E24 /* Info-macOS.plist in Resources */,
-				FFB8BD73202F9E8500A06E24 /* Info-tvOS.plist in Resources */,
-				FFB8BD72202F9E8500A06E24 /* Info-iOS.plist in Resources */,
+				FFB8BDC4202FC5F500A06E24 /* Info-iOS.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +281,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFB8BDC2202FC5C400A06E24 /* Info-tvOS.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFB8BDC3202FC5C800A06E24 /* Info-macOS.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,11 +302,13 @@
 			files = (
 				FFB8BDA1202FA3B800A06E24 /* Result.swift in Sources */,
 				FFB8BDAA202FA6ED00A06E24 /* DataContainer.swift in Sources */,
-				FFB8BD7A202FA03200A06E24 /* ExampleClass.swift in Sources */,
+				FFB8BDB6202FB78000A06E24 /* APIConfig.swift in Sources */,
 				FFB8BDA6202FA43700A06E24 /* APIRequest.swift in Sources */,
+				FFB8BDBA202FBA8600A06E24 /* User.swift in Sources */,
 				FFB8BD9D202FA25500A06E24 /* NetworkClient.swift in Sources */,
 				FFB8BDB2202FB63500A06E24 /* BitriseService.swift in Sources */,
 				FFB8BDAE202FB08500A06E24 /* APIResponse.swift in Sources */,
+				FFB8BDBF202FBB9E00A06E24 /* GetUserRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,11 +318,13 @@
 			files = (
 				FFB8BDA2202FA3B800A06E24 /* Result.swift in Sources */,
 				FFB8BDAB202FA6ED00A06E24 /* DataContainer.swift in Sources */,
-				FFB8BD7B202FA03400A06E24 /* ExampleClass.swift in Sources */,
+				FFB8BDB7202FB78000A06E24 /* APIConfig.swift in Sources */,
 				FFB8BDA7202FA43700A06E24 /* APIRequest.swift in Sources */,
+				FFB8BDBB202FBA8600A06E24 /* User.swift in Sources */,
 				FFB8BD9E202FA25500A06E24 /* NetworkClient.swift in Sources */,
 				FFB8BDB3202FB63500A06E24 /* BitriseService.swift in Sources */,
 				FFB8BDAF202FB08500A06E24 /* APIResponse.swift in Sources */,
+				FFB8BDC0202FBB9E00A06E24 /* GetUserRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,11 +334,13 @@
 			files = (
 				FFB8BDA3202FA3B800A06E24 /* Result.swift in Sources */,
 				FFB8BDAC202FA6ED00A06E24 /* DataContainer.swift in Sources */,
-				FFB8BD7C202FA03400A06E24 /* ExampleClass.swift in Sources */,
+				FFB8BDB8202FB78000A06E24 /* APIConfig.swift in Sources */,
 				FFB8BDA8202FA43700A06E24 /* APIRequest.swift in Sources */,
+				FFB8BDBC202FBA8600A06E24 /* User.swift in Sources */,
 				FFB8BD9F202FA25500A06E24 /* NetworkClient.swift in Sources */,
 				FFB8BDB4202FB63500A06E24 /* BitriseService.swift in Sources */,
 				FFB8BDB0202FB08500A06E24 /* APIResponse.swift in Sources */,
+				FFB8BDC1202FBB9E00A06E24 /* GetUserRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

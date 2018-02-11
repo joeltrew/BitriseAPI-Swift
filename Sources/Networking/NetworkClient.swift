@@ -9,8 +9,6 @@ import Foundation
 
 class NetworkClient {
     
-    typealias ResultCompletion<T> = (Result<T>) -> ()
-    
     var session: URLSession
     
     init(session: URLSession = URLSession.shared) {
