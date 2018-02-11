@@ -13,13 +13,13 @@ public struct Build: Decodable {
     
     public var triggeredAt: Date
     
-    public var startedOnWorkerAt: Date
+    public var startedOnWorkerAt: Date?
     
-    public var environmentPrepareFinishedAt: Date
+    public var environmentPrepareFinishedAt: Date?
     
-    public var finishedAt: Date
+    public var finishedAt: Date?
     
-    public var status: Int
+    public var status: Status
     
     public var abortReason: String?
     
@@ -50,6 +50,106 @@ public struct Build: Decodable {
     public var pullRequestViewUrl: URL?
     
     public var commitViewUrl: URL?
+    
+    public var isRunning: Bool {
+        return ((self.status == Build.Status.unfinished) && (isOnHold == false))
+    }
+    
+    public var buildTimeInSeconds: Int? {
+        
+        guard let environmentPrepareFinishedAt = self.environmentPrepareFinishedAt, let finishedAt = self.finishedAt else {
+            return nil
+        }
+        
+        return Calendar.current.dateComponents([.second], from: environmentPrepareFinishedAt, to: finishedAt).second
+    }
+    
+    public var wasSuccessful: Bool {
+        switch status {
+        case .finished(let subStatus):
+            return subStatus == .success
+        case .aborted(let subStatus):
+            return subStatus == .success
+        default:
+            return false
+        }
+    }
+    
+    
+    public enum Status: Decodable, Equatable {
+        
+        case unfinished
+        
+        case finished(FinishedStatus)
+        
+        case aborted(FinishedStatus)
+        
+        case unknown
+        
+        public var title: String {
+            switch self {
+            case .unfinished:
+                return "Unfinished or Running"
+            case .finished(let status):
+                return "Finished: \(status.title)"
+            case .aborted(let status):
+                return "Aborted: \(status.title)"
+            case .unknown:
+                return "Unknown"
+            }
+        }
+        
+        public init(rawValue: Int) {
+            
+            switch rawValue {
+            case 0: self = .unfinished
+            case 1: self = .finished(.success)
+            case 2: self = .finished(.failed)
+            case 3: self = .aborted(.failed)
+            case 4: self = .aborted(.success)
+            default: self = .unknown
+            }
+        }
+        
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.singleValueContainer()
+            let rawValue = try container.decode(Int.self)
+            self = Status(rawValue: rawValue)
+        }
+        
+        public enum FinishedStatus: Equatable {
+            
+            case success
+            case failed
+            
+            var title: String {
+                switch self {
+                    
+                case .success:
+                    return "Success"
+                case .failed:
+                    return "Failed"
+                }
+            }
+        }
+        
+        public static func ==(lhs: Build.Status, rhs: Build.Status) -> Bool {
+            switch (lhs, rhs) {
+                
+            case (.unfinished, .unfinished): return true
+                
+            case (let .finished(statusA), let .finished(statusB)):
+                return statusA == statusB
+                
+            case (let .aborted(statusA), let .aborted(statusB)):
+                return statusA == statusB
+                
+            case (.unknown, .unknown): return true
+                
+            default: return false
+            }
+        }
+    }
     
     enum CodingKeys: String, CodingKey {
         

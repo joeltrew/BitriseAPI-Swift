@@ -9,7 +9,7 @@ import Foundation
 
 public struct Artifact: Decodable {
     
-    public typealias Bytes = Int
+    public typealias Bytes = Int64
     
     public var title: String
     
@@ -20,6 +20,16 @@ public struct Artifact: Decodable {
     public var slug: String
     
     public var fileSize: Bytes
+    
+    var fileSizeDisplay: String {
+        return Artifact.byteCountFormatter.string(fromByteCount: self.fileSize)
+    }
+    
+    private static let byteCountFormatter: ByteCountFormatter = {
+        let formatter = ByteCountFormatter()
+        formatter.isAdaptive = true
+        return formatter
+    }()
     
     public init(from decoder: Decoder) throws {
         
@@ -34,7 +44,7 @@ public struct Artifact: Decodable {
         
         self.slug = try container.decode(String.self, forKey: .slug)
         
-        self.fileSize = try container.decode(Int.self, forKey: .fileSize)
+        self.fileSize = try container.decode(Int64.self, forKey: .fileSize)
     }
     
     enum CodingKeys: String, CodingKey {
