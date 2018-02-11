@@ -12,18 +12,19 @@ public class NetworkClient {
     var session: URLSession
     
     public init(token: String) {
+        
         let config = URLSessionConfiguration.default
+        
         var headers = config.httpAdditionalHeaders ?? [AnyHashable: Any]()
         headers["Authorization"] = "token \(token)"
         config.httpAdditionalHeaders = headers
-        self.session = URLSession(configuration: config)
         
+        self.session = URLSession(configuration: config)
     }
     
     
-    
     func send<Request: APIRequest>(_ request: Request,
-                                   completion: @escaping ResultCompletion<DataContainer<Request.Response>>) {
+                                   completion: @escaping ResultCompletion<DataContainer<Request.ResponseType>>) {
         
         
        let task = session.dataTask(with: request.urlRequest) { (data, response, error) in
@@ -40,7 +41,7 @@ public class NetworkClient {
             
             do {
                 
-                let decodedResponse = try JSONDecoder().decode(APIResponse<Request.Response>.self, from: data)
+                let decodedResponse = try JSONDecoder().decode(APIResponse<Request.ResponseType>.self, from: data)
                 
                 if let dataInResponse = decodedResponse.data {
                     

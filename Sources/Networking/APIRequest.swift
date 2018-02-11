@@ -9,7 +9,7 @@ import Foundation
 
 protocol APIRequest {
     
-    associatedtype Response: Decodable
+    associatedtype ResponseType: Decodable
     
     var endpoint: String? {
         get
@@ -17,6 +17,7 @@ protocol APIRequest {
     
     var baseUrl: URL {
         get
+        set
     }
     
     var urlRequest: URLRequest {
@@ -41,6 +42,7 @@ protocol APIRequest {
 
 extension APIRequest {
     
+
     func createUrl() -> URL {
         return baseUrl.appendingPathComponent(endpoint ?? "")
     }
@@ -60,8 +62,16 @@ extension APIRequest {
     var headers: [String: String] {
         return [String:String]()
     }
-
     
+    var body: Data? {
+        get {
+            return nil
+        }
+        set {
+            
+        }
+    }
+
     mutating func setBody<T: Encodable>(with encodable: T) {
         self.body = try? JSONEncoder().encode(encodable.self)
     }

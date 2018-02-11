@@ -40,6 +40,21 @@
 		FFB8BDC2202FC5C400A06E24 /* Info-tvOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFB8BD70202F9E8500A06E24 /* Info-tvOS.plist */; };
 		FFB8BDC3202FC5C800A06E24 /* Info-macOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFB8BD71202F9E8500A06E24 /* Info-macOS.plist */; };
 		FFB8BDC4202FC5F500A06E24 /* Info-iOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFB8BD6F202F9E8500A06E24 /* Info-iOS.plist */; };
+		FFB8BDE8202FE4C400A06E24 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDE7202FE4C400A06E24 /* App.swift */; };
+		FFB8BDEA202FE99A00A06E24 /* GetAppsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDE9202FE99A00A06E24 /* GetAppsRequest.swift */; };
+		FFB8BDEC202FECA800A06E24 /* GetAppBySlugRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDEB202FECA800A06E24 /* GetAppBySlugRequest.swift */; };
+		FFB8BDEE202FF71E00A06E24 /* PagedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDED202FF71E00A06E24 /* PagedData.swift */; };
+		FFB8BDEF202FF71E00A06E24 /* PagedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDED202FF71E00A06E24 /* PagedData.swift */; };
+		FFB8BDF0202FF71E00A06E24 /* PagedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDED202FF71E00A06E24 /* PagedData.swift */; };
+		FFB8BDF1202FF72700A06E24 /* GetAppBySlugRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDEB202FECA800A06E24 /* GetAppBySlugRequest.swift */; };
+		FFB8BDF2202FF72700A06E24 /* GetAppBySlugRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDEB202FECA800A06E24 /* GetAppBySlugRequest.swift */; };
+		FFB8BDF3202FF72A00A06E24 /* GetAppsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDE9202FE99A00A06E24 /* GetAppsRequest.swift */; };
+		FFB8BDF4202FF72B00A06E24 /* GetAppsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDE9202FE99A00A06E24 /* GetAppsRequest.swift */; };
+		FFB8BDF5202FF72E00A06E24 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDE7202FE4C400A06E24 /* App.swift */; };
+		FFB8BDF6202FF72E00A06E24 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDE7202FE4C400A06E24 /* App.swift */; };
+		FFB8BDF82030580D00A06E24 /* PagedAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDF72030580D00A06E24 /* PagedAPIRequest.swift */; };
+		FFB8BDF92030580D00A06E24 /* PagedAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDF72030580D00A06E24 /* PagedAPIRequest.swift */; };
+		FFB8BDFA2030580D00A06E24 /* PagedAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BDF72030580D00A06E24 /* PagedAPIRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +75,11 @@
 		FFB8BDB5202FB78000A06E24 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
 		FFB8BDB9202FBA8600A06E24 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FFB8BDBE202FBB9E00A06E24 /* GetUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserRequest.swift; sourceTree = "<group>"; };
+		FFB8BDE7202FE4C400A06E24 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		FFB8BDE9202FE99A00A06E24 /* GetAppsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppsRequest.swift; sourceTree = "<group>"; };
+		FFB8BDEB202FECA800A06E24 /* GetAppBySlugRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppBySlugRequest.swift; sourceTree = "<group>"; };
+		FFB8BDED202FF71E00A06E24 /* PagedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedData.swift; sourceTree = "<group>"; };
+		FFB8BDF72030580D00A06E24 /* PagedAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedAPIRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,10 +129,12 @@
 		FFB8BD6E202F9E1800A06E24 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				FFB8BDE6202FE4AB00A06E24 /* App */,
 				FFB8BDBD202FBB8E00A06E24 /* User */,
 				FFB8BDA4202FA42500A06E24 /* Networking */,
 				FFB8BDB5202FB78000A06E24 /* APIConfig.swift */,
 				FFB8BDB1202FB63500A06E24 /* BitriseService.swift */,
+				FFB8BDED202FF71E00A06E24 /* PagedData.swift */,
 				FFB8BD75202F9FF600A06E24 /* BitriseAPI.h */,
 				FFB8BD6F202F9E8500A06E24 /* Info-iOS.plist */,
 				FFB8BD71202F9E8500A06E24 /* Info-macOS.plist */,
@@ -129,6 +151,7 @@
 				FFB8BDA5202FA43700A06E24 /* APIRequest.swift */,
 				FFB8BDA9202FA6ED00A06E24 /* DataContainer.swift */,
 				FFB8BDAD202FB08500A06E24 /* APIResponse.swift */,
+				FFB8BDF72030580D00A06E24 /* PagedAPIRequest.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -140,6 +163,16 @@
 				FFB8BDBE202FBB9E00A06E24 /* GetUserRequest.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		FFB8BDE6202FE4AB00A06E24 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FFB8BDE7202FE4C400A06E24 /* App.swift */,
+				FFB8BDE9202FE99A00A06E24 /* GetAppsRequest.swift */,
+				FFB8BDEB202FECA800A06E24 /* GetAppBySlugRequest.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,11 +336,16 @@
 				FFB8BDA1202FA3B800A06E24 /* Result.swift in Sources */,
 				FFB8BDAA202FA6ED00A06E24 /* DataContainer.swift in Sources */,
 				FFB8BDB6202FB78000A06E24 /* APIConfig.swift in Sources */,
+				FFB8BDE8202FE4C400A06E24 /* App.swift in Sources */,
 				FFB8BDA6202FA43700A06E24 /* APIRequest.swift in Sources */,
+				FFB8BDEA202FE99A00A06E24 /* GetAppsRequest.swift in Sources */,
 				FFB8BDBA202FBA8600A06E24 /* User.swift in Sources */,
+				FFB8BDEE202FF71E00A06E24 /* PagedData.swift in Sources */,
 				FFB8BD9D202FA25500A06E24 /* NetworkClient.swift in Sources */,
+				FFB8BDEC202FECA800A06E24 /* GetAppBySlugRequest.swift in Sources */,
 				FFB8BDB2202FB63500A06E24 /* BitriseService.swift in Sources */,
 				FFB8BDAE202FB08500A06E24 /* APIResponse.swift in Sources */,
+				FFB8BDF82030580D00A06E24 /* PagedAPIRequest.swift in Sources */,
 				FFB8BDBF202FBB9E00A06E24 /* GetUserRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFB8BDF5202FF72E00A06E24 /* App.swift in Sources */,
 				FFB8BDA2202FA3B800A06E24 /* Result.swift in Sources */,
 				FFB8BDAB202FA6ED00A06E24 /* DataContainer.swift in Sources */,
 				FFB8BDB7202FB78000A06E24 /* APIConfig.swift in Sources */,
@@ -323,7 +362,11 @@
 				FFB8BDBB202FBA8600A06E24 /* User.swift in Sources */,
 				FFB8BD9E202FA25500A06E24 /* NetworkClient.swift in Sources */,
 				FFB8BDB3202FB63500A06E24 /* BitriseService.swift in Sources */,
+				FFB8BDEF202FF71E00A06E24 /* PagedData.swift in Sources */,
+				FFB8BDF3202FF72A00A06E24 /* GetAppsRequest.swift in Sources */,
+				FFB8BDF1202FF72700A06E24 /* GetAppBySlugRequest.swift in Sources */,
 				FFB8BDAF202FB08500A06E24 /* APIResponse.swift in Sources */,
+				FFB8BDF92030580D00A06E24 /* PagedAPIRequest.swift in Sources */,
 				FFB8BDC0202FBB9E00A06E24 /* GetUserRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFB8BDF6202FF72E00A06E24 /* App.swift in Sources */,
 				FFB8BDA3202FA3B800A06E24 /* Result.swift in Sources */,
 				FFB8BDAC202FA6ED00A06E24 /* DataContainer.swift in Sources */,
 				FFB8BDB8202FB78000A06E24 /* APIConfig.swift in Sources */,
@@ -339,7 +383,11 @@
 				FFB8BDBC202FBA8600A06E24 /* User.swift in Sources */,
 				FFB8BD9F202FA25500A06E24 /* NetworkClient.swift in Sources */,
 				FFB8BDB4202FB63500A06E24 /* BitriseService.swift in Sources */,
+				FFB8BDF0202FF71E00A06E24 /* PagedData.swift in Sources */,
+				FFB8BDF4202FF72B00A06E24 /* GetAppsRequest.swift in Sources */,
+				FFB8BDF2202FF72700A06E24 /* GetAppBySlugRequest.swift in Sources */,
 				FFB8BDB0202FB08500A06E24 /* APIResponse.swift in Sources */,
+				FFB8BDFA2030580D00A06E24 /* PagedAPIRequest.swift in Sources */,
 				FFB8BDC1202FBB9E00A06E24 /* GetUserRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

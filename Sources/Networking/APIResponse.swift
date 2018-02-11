@@ -10,15 +10,39 @@ import Foundation
 public struct APIResponse<Response: Decodable>: Decodable {
 
     public let message: String?
-    
-    public var pagination: Pagination?
 
     public var data: DataContainer<Response>?
     
-    public struct Pagination: Decodable {
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.message = try container.decodeIfPresent(String.self, forKey: .message)
+        self.data = try container.decodeIfPresent(DataContainer<Response>.self, forKey: .data)
+        self.data?.pagination = try container.decodeIfPresent(Pagination.self, forKey: .paging)
+    }
+    
+    enum CodingKeys: CodingKey {
         
-        var totalItemCount: Int
-        var pageItemLimit: Int
-        var next: String?
+        case message
+        
+        case data
+        
+        case paging
+    }
+
+}
+
+public struct Pagination: Decodable {
+    
+    var totalItemCount: Int
+    var pageItemLimit: Int
+    var next: String?
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case totalItemCount = "total_item_count"
+        
+        case pageItemLimit = "page_item_limit"
+        
+        case next
     }
 }
