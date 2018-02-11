@@ -11,6 +11,12 @@ public class NetworkClient {
     
     var session: URLSession
     
+    var jsonDecoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        return decoder
+    }()
+    
     public init(token: String) {
         
         let config = URLSessionConfiguration.default
@@ -27,7 +33,7 @@ public class NetworkClient {
                                    completion: @escaping ResultCompletion<DataContainer<Request.ResponseType>>) {
         
         
-       let task = session.dataTask(with: request.urlRequest) { (data, response, error) in
+       let task = session.dataTask(with: request.urlRequest) { [weak self] (data, response, error) in
             
             if let error = error {
                 completion(.failure(error))
@@ -41,14 +47,14 @@ public class NetworkClient {
             
             do {
                 
-                let decodedResponse = try JSONDecoder().decode(APIResponse<Request.ResponseType>.self, from: data)
+                let decodedResponse = try self?.jsonDecoder.decode(APIResponse<Request.ResponseType>.self, from: data)
                 
-                if let dataInResponse = decodedResponse.data {
+                if let dataInResponse = decodedResponse?.data {
                     
                     completion(.success(dataInResponse))
                     return
                     
-                } else if let message = decodedResponse.message {
+                } else if let message = decodedResponse?.message {
                     
                     completion(.failure(NetworkError.server(message: message)))
                     return
