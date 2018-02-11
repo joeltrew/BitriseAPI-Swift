@@ -75,6 +75,48 @@ public class NetworkClient {
     }
     
     
+    func send<Request: APIRequest>(_ request: Request,
+                                   completion: @escaping ResultCompletion<Request.ResponseType>) {
+        
+        
+        let task = session.dataTask(with: request.urlRequest) { [weak self] (data, response, error) in
+            
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(NetworkError.noData))
+                return
+            }
+            
+            do {
+                
+                let decoded = try self?.jsonDecoder.decode(Request.ResponseType.self, from: data)
+                
+                if let decoded = decoded {
+                    
+                    completion(.success(decoded))
+                    return
+                    
+                } else {
+                    completion(.failure(NetworkError.decoding))
+                    return
+                }
+                
+                
+            } catch let error {
+                completion(.failure(error))
+                return
+            }
+        }
+        
+        task.resume()
+        
+        
+    }
+    
     
     enum NetworkError: Error {
         

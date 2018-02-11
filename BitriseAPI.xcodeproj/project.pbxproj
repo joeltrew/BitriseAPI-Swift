@@ -79,6 +79,12 @@
 		FFB8BE1A2030AD4000A06E24 /* AbortBuildRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BE192030AD4000A06E24 /* AbortBuildRequest.swift */; };
 		FFB8BE1B2030AD4000A06E24 /* AbortBuildRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BE192030AD4000A06E24 /* AbortBuildRequest.swift */; };
 		FFB8BE1C2030AD4000A06E24 /* AbortBuildRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BE192030AD4000A06E24 /* AbortBuildRequest.swift */; };
+		FFB8BE1F2030C03200A06E24 /* AbortBuildOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BE1E2030C03200A06E24 /* AbortBuildOptions.swift */; };
+		FFB8BE202030C03200A06E24 /* AbortBuildOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BE1E2030C03200A06E24 /* AbortBuildOptions.swift */; };
+		FFB8BE212030C03200A06E24 /* AbortBuildOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BE1E2030C03200A06E24 /* AbortBuildOptions.swift */; };
+		FFB8BE232030D11800A06E24 /* AbortBuildResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BE222030D11800A06E24 /* AbortBuildResponse.swift */; };
+		FFB8BE242030D11800A06E24 /* AbortBuildResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BE222030D11800A06E24 /* AbortBuildResponse.swift */; };
+		FFB8BE252030D11800A06E24 /* AbortBuildResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BE222030D11800A06E24 /* AbortBuildResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +118,8 @@
 		FFB8BE112030AD0800A06E24 /* GetArtifactsByBuildSlugRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArtifactsByBuildSlugRequest.swift; sourceTree = "<group>"; };
 		FFB8BE152030AD1D00A06E24 /* GetArtifactBySlug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArtifactBySlug.swift; sourceTree = "<group>"; };
 		FFB8BE192030AD4000A06E24 /* AbortBuildRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbortBuildRequest.swift; sourceTree = "<group>"; };
+		FFB8BE1E2030C03200A06E24 /* AbortBuildOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbortBuildOptions.swift; sourceTree = "<group>"; };
+		FFB8BE222030D11800A06E24 /* AbortBuildResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbortBuildResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,10 +221,10 @@
 		FFB8BDFF2030A04300A06E24 /* Builds */ = {
 			isa = PBXGroup;
 			children = (
+				FFB8BE1D2030C01E00A06E24 /* Abort Build */,
 				FFB8BE082030A0D500A06E24 /* Build.swift */,
 				FFB8BE002030A06200A06E24 /* GetBuildsByAppSlugRequest.swift */,
 				FFB8BE042030A07100A06E24 /* GetBuildBySlugRequest.swift */,
-				FFB8BE192030AD4000A06E24 /* AbortBuildRequest.swift */,
 			);
 			path = Builds;
 			sourceTree = "<group>";
@@ -229,6 +237,16 @@
 				FFB8BE152030AD1D00A06E24 /* GetArtifactBySlug.swift */,
 			);
 			path = Artifacts;
+			sourceTree = "<group>";
+		};
+		FFB8BE1D2030C01E00A06E24 /* Abort Build */ = {
+			isa = PBXGroup;
+			children = (
+				FFB8BE192030AD4000A06E24 /* AbortBuildRequest.swift */,
+				FFB8BE1E2030C03200A06E24 /* AbortBuildOptions.swift */,
+				FFB8BE222030D11800A06E24 /* AbortBuildResponse.swift */,
+			);
+			path = "Abort Build";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,7 +425,9 @@
 				FFB8BDAE202FB08500A06E24 /* APIResponse.swift in Sources */,
 				FFB8BDFC20309D7500A06E24 /* Pagination.swift in Sources */,
 				FFB8BE092030A0D500A06E24 /* Build.swift in Sources */,
+				FFB8BE232030D11800A06E24 /* AbortBuildResponse.swift in Sources */,
 				FFB8BE012030A06200A06E24 /* GetBuildsByAppSlugRequest.swift in Sources */,
+				FFB8BE1F2030C03200A06E24 /* AbortBuildOptions.swift in Sources */,
 				FFB8BDF82030580D00A06E24 /* PagedAPIRequest.swift in Sources */,
 				FFB8BDBF202FBB9E00A06E24 /* GetUserRequest.swift in Sources */,
 				FFB8BE122030AD0900A06E24 /* GetArtifactsByBuildSlugRequest.swift in Sources */,
@@ -436,7 +456,9 @@
 				FFB8BDAF202FB08500A06E24 /* APIResponse.swift in Sources */,
 				FFB8BDFD20309D7500A06E24 /* Pagination.swift in Sources */,
 				FFB8BE0A2030A0D500A06E24 /* Build.swift in Sources */,
+				FFB8BE242030D11800A06E24 /* AbortBuildResponse.swift in Sources */,
 				FFB8BE022030A06200A06E24 /* GetBuildsByAppSlugRequest.swift in Sources */,
+				FFB8BE202030C03200A06E24 /* AbortBuildOptions.swift in Sources */,
 				FFB8BDF92030580D00A06E24 /* PagedAPIRequest.swift in Sources */,
 				FFB8BDC0202FBB9E00A06E24 /* GetUserRequest.swift in Sources */,
 				FFB8BE132030AD0900A06E24 /* GetArtifactsByBuildSlugRequest.swift in Sources */,
@@ -465,7 +487,9 @@
 				FFB8BDB0202FB08500A06E24 /* APIResponse.swift in Sources */,
 				FFB8BDFE20309D7500A06E24 /* Pagination.swift in Sources */,
 				FFB8BE0B2030A0D500A06E24 /* Build.swift in Sources */,
+				FFB8BE252030D11800A06E24 /* AbortBuildResponse.swift in Sources */,
 				FFB8BE032030A06200A06E24 /* GetBuildsByAppSlugRequest.swift in Sources */,
+				FFB8BE212030C03200A06E24 /* AbortBuildOptions.swift in Sources */,
 				FFB8BDFA2030580D00A06E24 /* PagedAPIRequest.swift in Sources */,
 				FFB8BDC1202FBB9E00A06E24 /* GetUserRequest.swift in Sources */,
 				FFB8BE142030AD0900A06E24 /* GetArtifactsByBuildSlugRequest.swift in Sources */,

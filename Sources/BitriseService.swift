@@ -29,7 +29,7 @@ public class BitriseService {
     ///   - completion: A completion closure to call when the network request completes, the closure is returned with a 'result' object which contains either the requested data decoded or an error
     private func perform<T: APIRequest>(request: T, completion: @escaping ResultCompletion<T.ResponseType>) {
         
-        networkClient.send(request) { (result) in
+        networkClient.send(request) { (result: Result<DataContainer<T.ResponseType>>) in
             
             // Unwrap the value and return that in a result
             let mappedResult = result.map({ (container) -> T.ResponseType in
@@ -59,7 +59,7 @@ public class BitriseService {
         }
         
         // Send the request
-        networkClient.send(_request) { (result) in
+        networkClient.send(_request) { (result: Result<DataContainer<T.ResponseType>>) in
             
             // Convert the response into a PagedData object containing the paging metadata
             let mappedResult = result.map({ (container) -> PagedData<T.ResponseType> in
@@ -106,6 +106,33 @@ public class BitriseService {
     public func getBuildBySlug(_ buildSlug: String, in app: App, completion: @escaping ResultCompletion<Build>) {
         
         let request = GetBuildBySlugRequest(baseUrl: apiConfig.url, appSlug: app.slug, buildSlug: buildSlug)
+        
+        self.perform(request: request, completion: completion)
+    }
+    
+    public func abortBuild(with options: AbortBuildOptions? = nil, buildSlug: String, app: App, completion: @escaping ResultCompletion<AbortRequestResponse>) {
+        
+        var request = AbortBuildRequest(baseUrl: apiConfig.url, appSlug: app.slug, buildSlug: buildSlug, body: nil)
+        if let options = options {
+            request.setBody(with: options)
+        }
+        // Send the request
+        networkClient.send(request) { (result: Result<AbortRequestResponse>) in
+            completion(result)
+        }
+    }
+    
+    // MARK: - Get artifacts methods
+    public func getArtifactsForBuild(_ buildSlug: String, app: App, pagination: Pagination?, completion: @escaping PagedDataResultCompletion<Artifact>) {
+        
+        let request = GetArtifactsByBuildSlugRequest(baseUrl: apiConfig.url, appSlug: app.slug, buildSlug: buildSlug)
+        
+        self.perform(request: request, pagination: pagination, completion: completion)
+    }
+    
+    public func getArtifactBySlug(_ artifactSlug: String, buildSlug: String, appSlug: String, completion: @escaping ResultCompletion<Artifact>) {
+        
+        let request = GetArtifactBySlug(baseUrl: apiConfig.url, appSlug: appSlug, buildSlug: buildSlug, artifactSlug: artifactSlug)
         
         self.perform(request: request, completion: completion)
     }
