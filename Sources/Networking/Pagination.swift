@@ -7,10 +7,14 @@
 
 import Foundation
 
+/// An object which contains data about the current pagination state of a response, for example the currentpage and the total number of items
 public struct Pagination: Decodable {
     
+    // The total number of items available
     var totalItemCount: Int
+    // The number of items appearing per page
     var pageItemLimit: Int
+    // An id which provides the next page of results
     var next: String?
     
     public init(pageItemLimit: Int, next: String?) {

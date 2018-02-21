@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A model of a user in Bitrise
 public struct User: Decodable {
     
     public var username: String

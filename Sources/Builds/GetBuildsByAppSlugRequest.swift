@@ -33,7 +33,7 @@ struct GetBuildsByAppSlugRequest: PagedAPIRequest {
     
     func createUrl() -> URL {
         let urlWithEndpoint =  baseUrl.appendingPathComponent(endpoint)
-        let urlWithEndpointAndPagingQueries = addQueries(to: urlWithEndpoint)
+        let urlWithEndpointAndPagingQueries = urlWithPagintionQueries(from: urlWithEndpoint)
         let finalUrl = addFilterQueries(to: urlWithEndpointAndPagingQueries)
         
         return finalUrl

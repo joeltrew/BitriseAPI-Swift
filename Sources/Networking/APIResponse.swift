@@ -7,10 +7,13 @@
 
 import Foundation
 
+/// A model representing a `response` from the bitrise server
+/// The response object can currently contain data requested, and message if soemthing goes wrong
 public struct APIResponse<Response: Decodable>: Decodable {
 
+    // A message used to describe an error returned from the server
     public let message: String?
-
+    // A decoded model object wrapped in a containing `container` object
     public var data: DataContainer<Response>?
     
     public init(from decoder: Decoder) throws {

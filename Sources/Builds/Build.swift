@@ -7,42 +7,44 @@
 
 import Foundation
 
+/// A model which describes a `Build` of an app in Bitrise
 public struct Build: Decodable {
     
+    // A unique id of a specific build
     public var slug: String
-    
+    // The date/time the build was triggered
     public var triggeredAt: Date
-    
+    // The date/time the build was assigned a worker and esentially 'started'
     public var startedOnWorkerAt: Date?
-    
+    // The date/time the environment finished preparing
     public var environmentPrepareFinishedAt: Date?
-    
+    // The date/time the build finished
     public var finishedAt: Date?
-    
+    // The current status of the build
     public var status: Status
-    
+    // A reason for why the build was aborted if it was, and one was provided
     public var abortReason: String?
-    
+    // If the build is 'on hold' or waiting for other builds to finish before it can start
     public var isOnHold: Bool
-    
+    // The git branch the build was triggered from
     public var branch: String
-    
+    // The build number of the build
     public var buildNumber: Int
-    
+    // The commit hash the build is being created from
     public var commitHash: String?
     
     public var tag: String?
-    
+    // Which workflow was triggered with the build
     public var triggeredWorkflow: String
-    
+    // Who triggered the build
     public var triggeredBy: String?
-    
+    // Details on the computing stack the build was created on
     public var stackConfigType: String?
-    
+    // An indentifier to a specific computing stack
     public var stackIdentifier: String?
-    
+    // The build parameters that were given when creating the build
     public var originalBuildParams: [String: String]?
-    
+    // A pull request id if the build was triggered via pull request
     public var pullRequestId: Int?
     
     public var pullRequestTargetBranch: String?
@@ -50,11 +52,11 @@ public struct Build: Decodable {
     public var pullRequestViewUrl: URL?
     
     public var commitViewUrl: URL?
-    
+    // If the current build is running
     public var isRunning: Bool {
         return ((self.status == Build.Status.unfinished) && (isOnHold == false))
     }
-    
+    // The time that it took for the build to finish in seconds
     public var buildTimeInSeconds: Int? {
         
         guard let environmentPrepareFinishedAt = self.environmentPrepareFinishedAt, let finishedAt = self.finishedAt else {
@@ -64,6 +66,8 @@ public struct Build: Decodable {
         return Calendar.current.dateComponents([.second], from: environmentPrepareFinishedAt, to: finishedAt).second
     }
     
+    // If the build was successful
+    // Note that it is possible to abort a build and it be considered a 'successful build', however the default is failed
     public var wasSuccessful: Bool {
         switch status {
         case .finished(let subStatus):

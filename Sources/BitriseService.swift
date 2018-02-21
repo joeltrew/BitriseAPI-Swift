@@ -7,18 +7,19 @@
 
 import Foundation
 
+/// Provides access to all of the endpoints in the bitrise system
+/// You will need to configure this object with a valid API key
 public class BitriseService {
     
     public typealias PagedDataResultCompletion<T> = ResultCompletion<PagedData<[T]>>
     
-    var userToken: String
-    
+    // Configuration object used to define the properties of the bitrise API
     var apiConfig: APIConfig = APIConfig(baseUrl: "api.bitrise.io", version: "v0.1")
     
+    // Client used to perform network requests
     var networkClient: NetworkClient
     
     public init(userToken: String) {
-        self.userToken = userToken
         self.networkClient = NetworkClient(token: userToken)
     }
     
@@ -71,6 +72,7 @@ public class BitriseService {
     }
     
     // MARK: - Get user methods
+    // Gets the current user, this will be the account which created the API token
     public func getUser(completion: @escaping ResultCompletion<User>) {
         
         let request = GetUserRequest(baseUrl: apiConfig.url)
@@ -79,6 +81,12 @@ public class BitriseService {
     }
     
     // MARK: - Get app methods
+    
+    /// Gets all the apps for the current user
+    ///
+    /// - Parameters:
+    ///   - pagination: An optional pagination object which defines which page and the number of item to appear on each page
+    ///   - completion: A completion handler which returns an array of apps along with pagination data
     public func getApps(pagination: Pagination? = nil, completion: @escaping PagedDataResultCompletion<App>) {
         
         let request = GetAppsRequest(baseUrl: apiConfig.url)
@@ -87,6 +95,11 @@ public class BitriseService {
     }
     
     
+    /// Gets a single app by its specific slug(identifier)
+    ///
+    /// - Parameters:
+    ///   - slug: A unique identifier to a specific app
+    ///   - completion: A completion handler which returns a single app
     public func getAppBySlug(_ slug: String, completion: @escaping ResultCompletion<App>) {
         
         let request = GetAppBySlugRequest(baseUrl: apiConfig.url, slug: slug)
@@ -96,6 +109,13 @@ public class BitriseService {
     
     // MARK: - Get build methods
     
+    /// Gets all the builds for a given app, builds will be paginated if there are too many
+    ///
+    /// - Parameters:
+    ///   - app: The app the build belong to
+    ///   - pagination: An optional pagination object which defines which page and the number of item to appear on each page
+    ///   - filterQuery: An optional filterquery object which allows finer control over the builds which are returned
+    ///   - completion: A completion handler which returns an array of builds along with pagination data
     public func getBuildsForApp(_ app: App,
                                 pagination: Pagination? = nil,
                                 filterQuery: BuildFilterQuery? = nil,
@@ -106,6 +126,12 @@ public class BitriseService {
         self.perform(request: request, pagination: pagination, completion: completion)
     }
     
+    /// Gets a single app by its specific slug(identifier)
+    ///
+    /// - Parameters:
+    ///   - buildSlug: A unique identifier to a specific build
+    ///   - app: The app which the builds belong to
+    ///   - completion: A completion handler which returns a single build
     public func getBuildBySlug(_ buildSlug: String, in app: App, completion: @escaping ResultCompletion<Build>) {
         
         let request = GetBuildBySlugRequest(baseUrl: apiConfig.url, appSlug: app.slug, buildSlug: buildSlug)
@@ -113,6 +139,13 @@ public class BitriseService {
         self.perform(request: request, completion: completion)
     }
     
+    /// Aborts a build if it is currently running
+    ///
+    /// - Parameters:
+    ///   - options: A object which allows you define extra data when aborting a build such as a reason
+    ///   - buildSlug: The unique slug/identifier of a build
+    ///   - app: The app which the build belongs to
+    ///   - completion: A compeltion handler containing the response of the abort request
     public func abortBuild(with options: AbortBuildOptions? = nil, buildSlug: String, app: App, completion: @escaping ResultCompletion<AbortRequestResponse>) {
         
         var request = AbortBuildRequest(baseUrl: apiConfig.url, appSlug: app.slug, buildSlug: buildSlug, body: nil)
@@ -125,7 +158,23 @@ public class BitriseService {
         }
     }
     
+    // A convience method which allows you to abort a build and easily provide a reason
+    public func abortBuild(with reason: String, buildSlug: String, app: App, completion: @escaping ResultCompletion<AbortRequestResponse>) {
+        
+        let options = AbortBuildOptions(reason: reason)
+        
+        self.abortBuild(with: options, buildSlug: buildSlug, app: app, completion: completion)
+    }
+    
     // MARK: - Get artifacts methods
+    
+    /// Gets all artifacts for a specific build
+    ///
+    /// - Parameters:
+    ///   - buildSlug: The slug/identifier of the build the artifact was created from
+    ///   - app: The app that the artifact was created for
+    ///   - pagination: An optional pagination object which defines which page and the number of items to appear on each page
+    ///   - completion: A completion handler which returns an array of build artifacts along with pagination data
     public func getArtifactsForBuild(_ buildSlug: String, app: App, pagination: Pagination?, completion: @escaping PagedDataResultCompletion<Artifact>) {
         
         let request = GetArtifactsByBuildSlugRequest(baseUrl: apiConfig.url, appSlug: app.slug, buildSlug: buildSlug)
@@ -133,6 +182,13 @@ public class BitriseService {
         self.perform(request: request, pagination: pagination, completion: completion)
     }
     
+    /// Gets a specific artifact by its slug/identifier
+    ///
+    /// - Parameters:
+    ///   - artifactSlug: The slug/identifier of the artifact
+    ///   - buildSlug: The slug/identifier of the build the artifact was created from
+    ///   - appSlug: The app that the artifact was created for
+    ///   - completion: A completion handler which returns the requested artifact
     public func getArtifactBySlug(_ artifactSlug: String, buildSlug: String, appSlug: String, completion: @escaping ResultCompletion<Artifact>) {
         
         let request = GetArtifactBySlug(baseUrl: apiConfig.url, appSlug: appSlug, buildSlug: buildSlug, artifactSlug: artifactSlug)

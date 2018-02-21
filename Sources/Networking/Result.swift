@@ -11,6 +11,13 @@ public enum Result<Value> {
     case success(Value)
     case failure(Error)
     
+    public init(_ f: () throws -> Value) {
+        do {
+            self = .success(try f())
+        } catch {
+            self = .failure(error)
+        }
+    }
     
     /// Returns a new Result by mapping `Success`es’ values using `transform`, or re-wrapping `Failure`s’ errors.
     public func map<U>(_ transform: (Value) -> U) -> Result<U> {

@@ -7,20 +7,22 @@
 
 import Foundation
 
+/// Model of a specif Artifact created from a build for example an IPA file for a iOS build, or an APK for an android app
 public struct Artifact: Decodable {
     
     public typealias Bytes = Int64
     
+    // The title of the artifact
     public var title: String
-    
+    // The file type of the artifact
     public var type: ArtifactType
-    
+    // If there is a public page to access the artifact
     public var isPublicPageEnabled: Bool
-    
+    // The unique is of the artifact
     public var slug: String
-    
+    // The filesize of the artifact in bytes
     public var fileSize: Bytes
-    
+    // A human readable string for displaying the file size to a user
     var fileSizeDisplay: String {
         return Artifact.byteCountFormatter.string(fromByteCount: self.fileSize)
     }

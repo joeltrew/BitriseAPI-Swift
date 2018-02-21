@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Describes the additional parameters needed when requesting data that is returned as pages
 protocol PagedAPIRequest: APIRequest {
     
     var limit: Int? {
@@ -21,7 +22,7 @@ protocol PagedAPIRequest: APIRequest {
 extension PagedAPIRequest {
     func createUrl() -> URL {
         let urlWithEndpoint =  baseUrl.appendingPathComponent(endpoint)
-        let urlWithEndpointAndQueries = addQueries(to: urlWithEndpoint)
+        let urlWithEndpointAndQueries = urlWithPagintionQueries(from: urlWithEndpoint)
         return urlWithEndpointAndQueries
     }
 }
@@ -32,21 +33,17 @@ extension PagedAPIRequest {
         get {
             return nil
         }
-        set {
-            
-        }
+        set {}
     }
     
     var next: String? {
         get {
             return nil
         }
-        set {
-            
-        }
+        set {}
     }
     
-    func addQueries(to url: URL) -> URL {
+    func urlWithPagintionQueries(from url: URL) -> URL {
         
         guard self.limit != nil || self.next != nil else {
             return url

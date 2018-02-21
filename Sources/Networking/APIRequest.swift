@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// Defines the properties every APIRequest should provide
+// To create a new request you should create a new struct and conform to this protocol
 protocol APIRequest {
     
     associatedtype ResponseType: Decodable
