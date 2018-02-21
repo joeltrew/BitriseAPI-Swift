@@ -37,5 +37,5 @@ Not at the moment, open to a PR
 ## Usage example
 
 
-[swift-image]:https://img.shields.io/badge/swift-3.0-orange.svg
+[swift-image]:https://img.shields.io/badge/Swift-4.0-F16D39.svg?style=flat
 [swift-url]: https://swift.org/
