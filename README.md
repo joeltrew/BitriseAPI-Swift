@@ -50,7 +50,8 @@ Not at the moment, open to a PR
                 print("App if request was a success: ", app)
             }
         })
-        
+```
+
 ```swift
         // Listed content is returned wrapped in a `PagedData` wrapper which includes pagination details
         service?.getApps(completion: { (pagedAppsResult) in
@@ -65,7 +66,7 @@ Not at the moment, open to a PR
                 print("Handle the error in some way")
             }
         })
-        
+```     
 ```swift
         // You can supply a pagination object for endpoints that support it
         let pagination = Pagination(pageItemLimit: 10, next: "29e37a4844dda34b")
