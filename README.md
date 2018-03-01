@@ -1,6 +1,7 @@
 # Bitrise API for Swift
-> A framework for connecting to the Bitrise API, which allows you to access your accounts Apps, Builds, and Artifacts. 
-> This framework is by no means developed by or in any way associated with Bitrise
+> A framework for connecting to the [Bitrise API](http://devcenter.bitrise.io/api/v0.1/), which allows you to access your accounts Apps, Builds, and Artifacts. 
+
+This framework is not developed by or in any way associated with Bitrise ltd (bitrise.io)
 
 [![Swift Version][swift-image]][swift-url]
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
@@ -8,14 +9,16 @@
 
 ## Features
 
+- [x] Support for all current endpoints provided by the Bitrise API
 - [x] Get your apps
 - [x] Get builds for your apps
 - [x] Get artifacts for your builds
 - [x] Abort builds
-- [x] Paginate results
+- [x] Full pagination support for results
 - [x] Supports query filters for the builds endpoint  
-- [x] Support for all current endpoints provided by the Bitrise API
-- [x] Support for iOS, macOS and tvOS 
+- [x] Support for iOS, macOS and tvOS (Latter two may need testing)
+
+You can track the progress of Bitrise's API [here](https://discuss.bitrise.io/t/bitrise-io-api-v0-1-work-in-progress/1554)
 
 ## Requirements
 
@@ -28,7 +31,7 @@
 Create a `Cartfile` that lists the framework and run `carthage update`. Follow the [instructions](https://github.com/Carthage/Carthage#if-youre-building-for-ios) to add `$(SRCROOT)/Carthage/Build/iOS/BitriseAPI.framework` to an iOS project.
 
 ```
-github "joeltrew/BitriseAPI-Swift"
+github "joeltrew/BitriseAPI-Swift" ~> 1.0
 ```
 #### Manually
 Download and drop ```BitriseAPI.xcodeproject``` in your project.  
