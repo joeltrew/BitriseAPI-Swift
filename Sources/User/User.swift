@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct User: Decodable {
+/// A model of a user in Bitrise
+public struct User: Decodable {
     
-    var username: String
+    public var username: String
 }

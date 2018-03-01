@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FFB8BD4A202F9DAF00A06E24"
-               BuildableName = "BitriseAPI_iOS.framework"
+               BuildableName = "BitriseAPI.framework"
                BlueprintName = "BitriseAPI iOS"
                ReferencedContainer = "container:BitriseAPI.xcodeproj">
             </BuildableReference>
@@ -48,7 +48,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FFB8BD4A202F9DAF00A06E24"
-            BuildableName = "BitriseAPI_iOS.framework"
+            BuildableName = "BitriseAPI.framework"
             BlueprintName = "BitriseAPI iOS"
             ReferencedContainer = "container:BitriseAPI.xcodeproj">
          </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FFB8BD4A202F9DAF00A06E24"
-            BuildableName = "BitriseAPI_iOS.framework"
+            BuildableName = "BitriseAPI.framework"
             BlueprintName = "BitriseAPI iOS"
             ReferencedContainer = "container:BitriseAPI.xcodeproj">
          </BuildableReference>

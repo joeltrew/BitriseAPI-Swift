@@ -7,12 +7,19 @@
 
 import Foundation
 
+/// Defines the properties every APIRequest should provide
+// To create a new request you should create a new struct and conform to this protocol
 protocol APIRequest {
     
-    associatedtype Response: Decodable
+    associatedtype ResponseType: Decodable
+    
+    var endpoint: String {
+        get
+    }
     
     var baseUrl: URL {
         get
+        set
     }
     
     var urlRequest: URLRequest {
@@ -32,16 +39,20 @@ protocol APIRequest {
         set
     }
     
-    var isAuthenticated: Bool {
-        get
-    }
+    func createUrl() -> URL
 }
 
 extension APIRequest {
     
+
+    func createUrl() -> URL {
+        return baseUrl.appendingPathComponent(endpoint)
+    }
+
+    
     var urlRequest: URLRequest {
         
-        var urlRequest = URLRequest(url: baseUrl)
+        var urlRequest = URLRequest(url: createUrl())
         
         urlRequest.httpMethod = httpMethod.rawValue
         urlRequest.httpBody = body
@@ -54,10 +65,15 @@ extension APIRequest {
         return [String:String]()
     }
     
-    var isAuthenticated: Bool {
-        return true
+    var body: Data? {
+        get {
+            return nil
+        }
+        set {
+            
+        }
     }
-    
+
     mutating func setBody<T: Encodable>(with encodable: T) {
         self.body = try? JSONEncoder().encode(encodable.self)
     }
