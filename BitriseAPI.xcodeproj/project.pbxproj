@@ -510,6 +510,7 @@
 		FFB8BD44202F9D7B00A06E24 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 			};
 			name = Debug;
@@ -517,6 +518,7 @@
 		FFB8BD45202F9D7B00A06E24 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 			};
 			name = Release;
