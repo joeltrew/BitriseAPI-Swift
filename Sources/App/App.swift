@@ -14,9 +14,8 @@ public struct App: Decodable {
     var slug: String
     // The title of an app
     var title: String
-    // ios, android etc,
-    // Todo: - Make an enum if we defined list of project types
-    var projectType: String
+    // The platform the project builds for - ios, android etc
+    var projectType: ProjectType
     //Which service hosts the source code for the app i.e github
     var provider: String
     // Name of the owner of the repo
@@ -29,6 +28,17 @@ public struct App: Decodable {
     var isDisabled: Bool
     
 
+    enum ProjectType: String, Decodable {
+        // Android app
+        case android
+        // iOS/tvOS app
+        case ios
+        // Xamarin app
+        case xamarin
+        //macOS app
+        case macos
+    }
+    
     enum CodingKeys: String, CodingKey {
         case slug
         case title
