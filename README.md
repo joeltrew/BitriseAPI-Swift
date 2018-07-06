@@ -9,7 +9,6 @@ This framework is not developed by or in any way associated with Bitrise ltd (bi
 
 ## Features
 
-- [x] Support for all current endpoints provided by the Bitrise API
 - [x] Get your apps
 - [x] Get builds for your apps
 - [x] Get artifacts for your builds
