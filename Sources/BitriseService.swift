@@ -11,7 +11,7 @@ import Foundation
 /// You will need to configure this object with a valid API key
 public class BitriseService {
     
-    public typealias PagedDataResultCompletion<T> = ResultCompletion<PagedData<[T]>>
+    public typealias PagedDataResultCompletion<T: Decodable> = ResultCompletion<PagedData<[T]>>
     
     // Configuration object used to define the properties of the bitrise API
     var apiConfig: APIConfig = APIConfig(baseUrl: "api.bitrise.io", version: "v0.1")
