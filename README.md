@@ -22,7 +22,7 @@ You can track the progress of Bitrise's API [here](https://discuss.bitrise.io/t/
 ## Requirements
 
 - iOS 9.0+
-- Swift 4 +
+- Swift 5.0+
 
 ## Installation
 
@@ -87,5 +87,5 @@ Not at the moment, open to a PR
 
 
 
-[swift-image]:https://img.shields.io/badge/Swift-4.0-F16D39.svg?style=flat
+[swift-image]:https://img.shields.io/badge/Swift-5.0-F16D39.svg?style=flat
 [swift-url]: https://swift.org/
