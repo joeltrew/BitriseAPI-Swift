@@ -5,6 +5,7 @@ This framework is not developed by or in any way associated with Bitrise ltd (bi
 
 [![Swift Version][swift-image]][swift-url]
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![SwiftPackage compatible](https://img.shields.io/badge/SwiftPackage-compatible-4BC51D.svg?style=flat)](https://github.com/apple/swift-package-manager)
 
 
 ## Features
@@ -32,6 +33,16 @@ Create a `Cartfile` that lists the framework and run `carthage update`. Follow t
 ```
 github "joeltrew/BitriseAPI-Swift" ~> 1.0
 ```
+
+#### Swift Package Manager
+Add the following dependency to your `Package.swift` manifest:
+
+```
+dependencies: [
+    .Package(url: "https://github.com/joeltrew/BitriseAPI-Swift", majorVersion: 1)
+]
+```
+
 #### Manually
 Download and drop ```BitriseAPI.xcodeproject``` in your project.  
 
