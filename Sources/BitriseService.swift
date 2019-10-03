@@ -138,6 +138,19 @@ public class BitriseService {
         
         self.perform(request: request, completion: completion)
     }
+
+    /// Trigger a new build
+    public func triggerBuild(with options: TriggerBuildOptions? = nil, app: App, completion: @escaping ResultCompletion<Trigger>) {
+
+        var request = TriggerBuildRequest(baseUrl: apiConfig.url, appSlug: app.slug, body: nil)
+        if let options = options {
+            request.setBody(with: options)
+        }
+        // Send the request
+        networkClient.send(request) { (result: Result<Trigger>) in
+            completion(result)
+        }
+    }
     
     /// Aborts a build if it is currently running
     ///
