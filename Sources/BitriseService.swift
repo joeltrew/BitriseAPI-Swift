@@ -30,7 +30,7 @@ public class BitriseService {
     ///   - completion: A completion closure to call when the network request completes, the closure is returned with a 'result' object which contains either the requested data decoded or an error
     private func perform<T: APIRequest>(request: T, completion: @escaping ResultCompletion<T.ResponseType>) {
         
-        networkClient.send(request) { (result: Result<DataContainer<T.ResponseType>>) in
+        networkClient.send(request) { (result: Result<DataContainer<T.ResponseType>, Error>) in
             
             // Unwrap the value and return that in a result
             let mappedResult = result.map({ (container) -> T.ResponseType in
@@ -60,7 +60,7 @@ public class BitriseService {
         }
         
         // Send the request
-        networkClient.send(_request) { (result: Result<DataContainer<T.ResponseType>>) in
+        networkClient.send(_request) { (result: Result<DataContainer<T.ResponseType>, Error>) in
             
             // Convert the response into a PagedData object containing the paging metadata
             let mappedResult = result.map({ (container) -> PagedData<T.ResponseType> in
@@ -147,7 +147,7 @@ public class BitriseService {
             request.setBody(with: options)
         }
         // Send the request
-        networkClient.send(request) { (result: Result<Trigger>) in
+        networkClient.send(request) { (result: Result<Trigger, Error>) in
             completion(result)
         }
     }
@@ -166,7 +166,7 @@ public class BitriseService {
             request.setBody(with: options)
         }
         // Send the request
-        networkClient.send(request) { (result: Result<AbortRequestResponse>) in
+        networkClient.send(request) { (result: Result<AbortRequestResponse, Error>) in
             completion(result)
         }
     }

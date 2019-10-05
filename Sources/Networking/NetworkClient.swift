@@ -44,8 +44,8 @@ public class NetworkClient {
         
         performNetworkRequest(with: request.urlRequest) { (dataResult) in
             
-            let decodedResult = dataResult.flatMap({ (data) -> Result<DataContainer<Request.ResponseType>> in
-                return Result({ try self.decodeContainedResponse(data: data) })
+            let decodedResult = dataResult.flatMap({ (data) -> Result<DataContainer<Request.ResponseType>, Error> in
+                return Result { try self.decodeContainedResponse(data: data) }
             })
             
             completion(decodedResult)
@@ -63,8 +63,8 @@ public class NetworkClient {
         
         performNetworkRequest(with: request.urlRequest) { (dataResult) in
             
-            let decodedResult = dataResult.flatMap({ (data) -> Result<Request.ResponseType> in
-                return Result({ try self.decodeResponse(data: data) })
+            let decodedResult = dataResult.flatMap({ (data) -> Result<Request.ResponseType, Error> in
+                return Result { try self.decodeResponse(data: data) }
             })
             
             completion(decodedResult)
